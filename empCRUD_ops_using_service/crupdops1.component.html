@@ -1,0 +1,33 @@
+<h2>Display Collection of Student details in table format</h2>
+
+<input type="text" [disabled]= "isDisabled" placeholder="Employee ID" [(ngModel)]="eid">
+<input type="text" placeholder="Employee Name" [(ngModel)]="ename">
+<input type="text" placeholder="Job" [(ngModel)]="job">
+<input type="text" placeholder="Salary" [(ngModel)]="sal">
+<input type="text" placeholder="Department No" [(ngModel)]="deptno"><br> <br>
+<button type="button" (click)="addEmp_click()">Add Employee</button>
+<button type="button" (click)="getEmpData_click()">Show Employee</button>
+<button type="button" (click)="updateEmpData()">Update Employee</button>
+
+<table border="1">
+  <tr>
+    <th>Employee ID</th>
+    <th>Employee Name</th>
+    <th>Job</th>
+    <th>Salary</th>
+    <th>Department No</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor= "let emp of empArray">
+    <td>{{emp.eid}}</td>
+    <td>{{emp.ename}}</td>
+    <td>{{emp.job}}</td>
+    <td>{{emp.sal}}</td>
+    <td>{{emp.deptno}}</td>
+    <td>
+        <a  href="javascript:void(0);"  (click)="selectEmp_click( emp.eid )"><i class="far fa-hand-pointer"></i></a> |
+        <a  href="javascript:void(0);"  (click)="removeEmpData_click( emp.eid )"><i class="far fa-trash-alt"></i></a>
+    </td>
+  </tr>
+
+</table>
